@@ -6,8 +6,17 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
-}
+  if (item.enhancement < 20) {
+    const successfulItem = {
+      name: item.name,
+      durability: item.durability,
+      enhancement: item.enhancement + 1
+    };
+    return successfulItem;
+  } else {
+    return item;
+  };
+};
 
 function fail(item) {
   if (item.enhancement < 15) {
@@ -31,9 +40,9 @@ function fail(item) {
       enhancement: item.enhancement - 1
     };
     return highEnhItemFail;
-  }
+  };
   return item;
-}
+};
 
 function repair(item) {
   const repairedItem = {
@@ -42,8 +51,8 @@ function repair(item) {
     enhancement: item.enhancement
   };
   return repairedItem;
-}
+};
 
 function get(item) {
   return { ...item };
-}
+};

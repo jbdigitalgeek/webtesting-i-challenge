@@ -60,5 +60,35 @@ describe('enhancer.js', () => {
             const failedItem = fail(item);
             expect(failedItem).toEqual(expected);
         });
-    })
+    });
+    describe('succeed()', () => {
+        it('raises enhancement by 1', () => {
+            const item = {
+                name: 'Sword',
+                durability: 60,
+                enhancement: 17
+            };
+            const expected = {
+                name: 'Sword',
+                durability: 60,
+                enhancement: 18
+            };
+            const successItem = succeed(item);
+            expect(successItem).toEqual(expected);
+        });
+        it('ignores enhancement when enhancement level 20', () => {
+            const item = {
+                name: 'Sword',
+                durability: 60,
+                enhancement: 20
+            };
+            const expected = {
+                name: 'Sword',
+                durability: 60,
+                enhancement: 20
+            };
+            const successItem = succeed(item);
+            expect(successItem).toEqual(expected);
+        });
+    });
 })
