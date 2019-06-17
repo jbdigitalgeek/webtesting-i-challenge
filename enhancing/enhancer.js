@@ -54,5 +54,16 @@ function repair(item) {
 };
 
 function get(item) {
-  return { ...item };
+  if (item.enhancement === 0) {
+    return item;
+  } else {
+    const statItem = {
+      name: `[+${item.enhancement}]` +  item.name,
+      durability: item.durability,
+      enhancement: item.enhancement
+    }
+    return statItem;
+  }
+  
+  
 };

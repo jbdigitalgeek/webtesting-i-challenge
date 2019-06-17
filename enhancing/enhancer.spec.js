@@ -91,4 +91,21 @@ describe('enhancer.js', () => {
             expect(successItem).toEqual(expected);
         });
     });
+    describe('get()', () => {
+        it('adds enhancement level to item', () => {
+            const item = {
+                name: 'Sword',
+                durability: 70,
+                enhancement: 18
+            };
+            const expected = {
+                name: '[+18]Sword',
+                durability: 70,
+                enhancement: 18
+            };
+            const getItem = get(item);
+            expect(getItem).toEqual(expected);
+        });
+        
+    })
 })
